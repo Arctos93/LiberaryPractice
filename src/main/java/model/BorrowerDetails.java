@@ -23,7 +23,7 @@ public class BorrowerDetails {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "e_mail")
+    @Column(name = "email")
     private String email;
 
     @Column(name = "phone")

@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.List;
 
 public class BookRepository {
 
@@ -27,5 +28,10 @@ public class BookRepository {
     public void cleanUp() {
         entityManager.close();
         managerFactory.close();
+
+    }
+
+    public List<Book> findAll(){
+        return entityManager.createQuery("select b from Book b" , Book.class).getResultList();
     }
 }

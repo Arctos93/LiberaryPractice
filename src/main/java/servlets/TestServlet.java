@@ -15,12 +15,12 @@ import java.io.PrintWriter;
 @WebServlet("/TestServlet")
 public class TestServlet extends HttpServlet {
 
-    private EntityManagerFactory managerFactory;
-    private EntityManager entityManager;
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        managerFactory = Persistence.createEntityManagerFactory("LibraryPracticeUnit");
-        entityManager = managerFactory.createEntityManager();
-    }
+//    private EntityManagerFactory managerFactory;
+//    private EntityManager entityManager;
+//
+//    @Override
+//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        managerFactory = Persistence.createEntityManagerFactory("LibraryPracticeUnit");
+//        entityManager = managerFactory.createEntityManager();
+//    }
 }

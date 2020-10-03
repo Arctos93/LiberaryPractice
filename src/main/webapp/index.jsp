@@ -1,4 +1,5 @@
-<%--
+<%@ page import="model.Book" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: Arek
   Date: 03.10.2020
@@ -10,6 +11,18 @@
 <head>
 </head>
 <body>
+<h1></h1>
 
+<% for (Book b : (List<Book>) request.getAttribute("books")) { %>
+<%= b.getTitle()%>
+<%= b.getPages()%>
+<%= b.getAuthor().getFirstName()%>
+<%= b.getCategory()%>
+<%= b.getIsbn()%>
+<%= b.getReleasaDate()%>
+<%= b.getSummary()%>
+<br>
+<%}%>
+<%@ include file="/WEB-INF/fragments/footer.jspf" %>
 </body>
 </html>
