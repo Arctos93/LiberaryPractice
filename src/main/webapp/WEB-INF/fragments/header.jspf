@@ -1,55 +1,16 @@
-<%@ page import="model.User" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Carousel</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <br class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="login.jsp">Login</a>
-            </li>
-        </ul>
-        <%--        <div align="left">--%>
-        <%--            <p>Jesteś zalogowany jako: </p>--%>
-        <%--            <% User user = (User) session.getAttribute("user");%>--%>
-        <%--            <% if (user != null) { %>--%>
-        <%--            <%= user.getLogin() %>--%>
-        <%--            <% } else { %>--%>
-        <%--            <%= "Użytkownik niezalogowany" %>--%>
-        <%--            <% }%>--%>
-        <%--        <br>--%>
-        <%--        </div>--%>
-
-
-        <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-        <div align="left">
-
-<c:set var="loginName" value="${sessionScope.user.login }"></c:set>
-            <c:choose>
-                <c:when test="${not empty loginName}">
-                    <p>Jesteś zalogowany jako: ${sessionScope.user.login}</p>
-                </c:when>
-                <c:otherwise>
-                    <p>Jesteś zalogowany jako: użytkownik nieznany</p>
-                </c:otherwise>
-            </c:choose>
+    <div class="card border-info mb-3">
+        <div class="card-header" align="center">
+            <h3>"Reading brings knowledge and knowledge is power"</h3>
         </div>
 
-    </nav>
+        <div class="card-body text-info">
+            <div align="center">
+                <button type="button" class="btn btn-outline-primary">ADD</button>
+                <button type="button" class="btn btn-outline-secondary">EDIT</button>
+                <button type="button" class="btn btn-outline-success">DELETE</button>
+                <button type="button" class="btn btn-outline-danger">SHOW</button>
+            </div>
+        </div>
+    </div>
 </header>
