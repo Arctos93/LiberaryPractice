@@ -1,7 +1,7 @@
 package servlets;
 
-import lombok.SneakyThrows;
 import model.Book;
+import org.hibernate.tool.schema.Action;
 import repository.BookRepository;
 
 import javax.servlet.ServletException;
@@ -16,6 +16,24 @@ import java.util.List;
 public class HomeServlet extends HttpServlet {
 
     BookRepository bookRepository = new BookRepository();
+
+//    @Override
+    protected void doPost(HttpServletResponse response, HttpServletRequest request) throws ServletException,IOException {
+        Action action = Action.valueOf(request.getParameter("action"));
+        Long bookId = Long.valueOf(request.getParameter("bookId"));
+
+        switch (action){
+            case ADD:
+                response.sendRedirect("/AddBookServlet");
+                break;
+        }
+
+
+
+
+    }
+
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

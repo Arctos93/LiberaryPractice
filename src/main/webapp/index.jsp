@@ -15,35 +15,38 @@
 <body>
 <jsp:include page="/WEB-INF/fragments/header.jspf"/>
 
-
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th scope="col">Number</th>
-        <th scope="col">Title</th>
-        <th scope="col">Author</th>
-        <th scope="col">ISBN</th>
-        <th scope="col">Category</th>
-        <th scope="col">Relase Date</th>
-        <th scope="col">Borrower</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach var="book" items="${requestScope.books}" varStatus="loop">
+<form action="/HomeServlet" method="post">
+    <table class="table table-striped">
+        <thead>
         <tr>
-            <th scope="row">${loop.index + 1}</th>
-            <td>${book.title}</td>
-            <td>${book.author.firstName}</td>
-<%--            <td>${book.author.firstName + " " + book.author.lastName}</td>--%>
-            <td>${book.isbn}</td>
-            <td>${book.category}</td>
-            <td>${book.releasaDate}</td>
-            <td>${book.borrows}</td>
-
+            <th scope="col">Number</th>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">ISBN</th>
+            <th scope="col">Category</th>
+            <th scope="col">Relase Date</th>
+            <th scope="col">Borrower</th>
         </tr>
-    </c:forEach>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        <c:forEach var="book" items="${requestScope.books}" varStatus="loop">
+            <tr>
+                <th scope="row">${loop.index + 1}</th>
+                <td>${book.title}</td>
+                <td>${book.author.firstName}
+                        ${book.author.lastName}
+                </td>
+                    <%--            <td>${book.author.firstName + " " + book.author.lastName}</td>--%>
+                <td>${book.isbn}</td>
+                <td>${book.category}</td>
+                <td>${book.releasaDate}</td>
+                <td>${book.borrows}</td>
+                <td><input class="fora-check-input" type="radio" name="bookId" value="${bookId}" checked></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</form>
 
 
 <%--<% for (Book b : (List<Book>) request.getAttribute("books")) { %>--%>
