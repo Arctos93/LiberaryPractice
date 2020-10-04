@@ -41,11 +41,19 @@
                 <td>${book.category}</td>
                 <td>${book.releasaDate}</td>
                 <td>${book.borrows}</td>
-                <td><input class="fora-check-input" type="radio" name="bookId" value="${bookId}" checked></td>
+                <td><input class="fora-check-input" type="radio" name="bookId" value="${book.id}" checked></td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
+    <div class="card-body text-info">
+        <div align="center">
+            <button class="btn btn-outline-primary" name="action" type="submit" value="ADD">ADD</button>
+            <button class="btn btn-outline-secondary" name="action" type="submit" value="EDIT">EDIT</button>
+            <button class="btn btn-outline-success" name="action" type="submit" value="DELETE">DELETE</button>
+            <button class="btn btn-outline-danger" name="action" type="submit" value="SHOW">SHOW</button>
+        </div>
+    </div>
 </form>
 
 

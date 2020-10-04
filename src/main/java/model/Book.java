@@ -50,6 +50,14 @@ public class Book {
     @JoinColumn(name = "author_id")
     private Author author;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public void setBorrows(List<Borrow> borrows) {
         this.borrows = borrows;
     }
@@ -108,5 +116,11 @@ public class Book {
 
     public Author getAuthor() {
         return author;
+    }
+
+    public void setCategory(String category) {
+    }
+
+    public void setPages(String addPages) {
     }
 }

@@ -1,6 +1,7 @@
 package servlets;
 
 import model.Book;
+import model.BookAction;
 import org.hibernate.tool.schema.Action;
 import repository.BookRepository;
 
@@ -17,30 +18,35 @@ public class HomeServlet extends HttpServlet {
 
     BookRepository bookRepository = new BookRepository();
 
-//    @Override
-    protected void doPost(HttpServletResponse response, HttpServletRequest request) throws ServletException,IOException {
-        Action action = Action.valueOf(request.getParameter("action"));
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        BookAction action = BookAction.valueOf(request.getParameter("action"));
         Long bookId = Long.valueOf(request.getParameter("bookId"));
 
-        switch (action){
+        switch (action) {
             case ADD:
-                response.sendRedirect("/AddBookServlet");
+                response.sendRedirect("/BookAdding");
                 break;
+            case EDIT:
+                response.sendRedirect("/EditBookServlet?bookId" + bookId);
+                break;
+            case SHOW:
+                response.sendRedirect("/ShowBooksDetailServlet?bookId" + bookId);
+                break;
+            case DELETE:
+
+                response.sendRedirect("/HomeServlet");
+                break;
+            default:
+                throw new UnsupportedOperationException("no action");
         }
-
-
-
-
     }
-
-
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        bookRepository.cleanUp();
         List<Book> books = bookRepository.findAll();
-        request.setAttribute("books",books);
-        request.getRequestDispatcher("index.jsp").forward(request,response);
+        request.setAttribute("books", books);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
 }
