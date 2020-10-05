@@ -14,10 +14,10 @@
 <body>
 <jsp:include page="/WEB-INF/fragments/header.jspf"/>
 <div class="container">
-    <form action="/BookAdding" method="post">
+    <form action="/EditBookServlet" method="post">
         <div class="form-group">
             <label for="bookTitleId">Boook title</label>
-            <input type="text" class="form-control" id="bookTitleId" name="newTitle" placeholder="Boook title">
+            <input type="text" class="form-control" id="bookTitleId" name="newTitle" value="${requestScope.book.title}">
         </div>
         <div class="form-group">
             <label for="categorySelectId">Category</label>
@@ -40,29 +40,36 @@
             <div class="col">
                 <label for="isbnId">ISBN</label>
 <%--                value - uzupełnia wartością która jest w bazie danych - potem podmienia po zapisaniu --%>
-                <input type="text" class="form-control" id="isbnId" name="addIsbn" placeholder="ISBN" value="${requestScope.book.isbn}">
+                <input type="text" class="form-control" id="isbnId" name="addIsbn"  value="${requestScope.book.isbn}">
             </div>
             <div class="col">
                 <label for="pagesId">Pages</label>
-                <input type="number" class="form-control" id="pagesId" name="addPages" placeholder="Pages">
+                <input type="number" class="form-control" id="pagesId" name="addPages"  value="${requestScope.book.pages}">
             </div>
         </div>
         <br>
         <div class="form-group">
             <label for="dateId">Boook title</label>
-            <input type="date" class="form-control" id="dateId" name="addDate" placeholder="Relase date">
+            <input type="date" class="form-control" id="dateId" name="addDate"  value="${requestScope.book.releasaDate}">
         </div>
         <div class="form-group">
             <label for="summaryId">Summary</label>
-            <textarea class="form-control"  id="summaryId" name="addSummary" rows="3"
-                      placeholder="Summary"></textarea>
+            <textarea class="form-control"  id="summaryId" name="addSummary" rows="3">
+                <c:out value="${requestScope.book.summary}"></c:out>
+            </textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Add</button>
+        <button type="submit" class="btn btn-primary">Edit</button>
         <a href="/HomeServlet">
             <button type="button" class="btn btn-primary">Cancel</button>
         </a>
     </form>
 </div>
+
+<%--<div class="container">--%>
+<%--    <form action="/EditBookServlet" method="get">--%>
+<%--        <c:out value="${requestScope.book.summary}"></c:out>--%>
+<%--    </form>--%>
+<%--</div>--%>
 <%@ include file="/WEB-INF/fragments/footer.jspf" %>
 </body>
 </html>
