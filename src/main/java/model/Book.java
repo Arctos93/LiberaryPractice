@@ -58,69 +58,76 @@ public class Book {
         this.id = id;
     }
 
+    public List<Borrow> getBorrows() {
+        return borrows;
+    }
+
     public void setBorrows(List<Borrow> borrows) {
         this.borrows = borrows;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public boolean isBorrow() {
+        return borrow;
     }
 
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
-    public void setPages(int pages) {
-        this.pages = pages;
-    }
-
-    public void setReleasaDate(LocalDate releasaDate) {
-        this.releasaDate = releasaDate;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setAuthor(Author author) {
-        this.author = author;
+    public void setBorrow(boolean borrow) {
+        this.borrow = borrow;
     }
 
     public Category getCategory() {
         return category;
     }
 
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
     public String getIsbn() {
         return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
     public int getPages() {
         return pages;
     }
 
+    public void setPages(int pages) {
+        this.pages = pages;
+    }
+
     public LocalDate getReleasaDate() {
         return releasaDate;
+    }
+
+    public void setReleasaDate(LocalDate releasaDate) {
+        this.releasaDate = releasaDate;
     }
 
     public String getSummary() {
         return summary;
     }
 
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Author getAuthor() {
         return author;
     }
 
-    public void setCategory(String category) {
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 
-    public void setPages(String addPages) {
-    }
 }

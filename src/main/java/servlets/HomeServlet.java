@@ -28,13 +28,13 @@ public class HomeServlet extends HttpServlet {
                 response.sendRedirect("/BookAdding");
                 break;
             case EDIT:
-                response.sendRedirect("/EditBookServlet?bookId" + bookId);
+                response.sendRedirect("/EditBookServlet?bookId=" + bookId);
                 break;
             case SHOW:
-                response.sendRedirect("/ShowBooksDetailServlet?bookId" + bookId);
+                response.sendRedirect("/ShowBooksDetailServlet?bookId=" + bookId);
                 break;
             case DELETE:
-
+                bookRepository.delete(bookId);
                 response.sendRedirect("/HomeServlet");
                 break;
             default:

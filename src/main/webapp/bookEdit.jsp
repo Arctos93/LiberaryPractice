@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Arek
-  Date: 04.10.2020
-  Time: 10:44
+  Date: 05.10.2020
+  Time: 20:13
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -39,7 +39,8 @@
         <div class="row">
             <div class="col">
                 <label for="isbnId">ISBN</label>
-                <input type="text" class="form-control" id="isbnId" name="addIsbn" placeholder="ISBN" >
+<%--                value - uzupełnia wartością która jest w bazie danych - potem podmienia po zapisaniu --%>
+                <input type="text" class="form-control" id="isbnId" name="addIsbn" placeholder="ISBN" value="${requestScope.book.isbn}">
             </div>
             <div class="col">
                 <label for="pagesId">Pages</label>

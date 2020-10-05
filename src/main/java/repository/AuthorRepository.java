@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.List;
 
 public class AuthorRepository {
 
@@ -28,5 +29,14 @@ public class AuthorRepository {
     public void cleanUp() {
         entityManager.close();
         managerFactory.close();
+    }
+
+    public List<Author> findAll() {
+        return entityManager.createQuery("select a from Author a", Author.class).getResultList();
+//        return List.of(new Author(1L, "Adam", "Mickiewicz", null , null));
+    }
+
+    public Author find(Long id){
+        return entityManager.find(Author.class, id);
     }
 }

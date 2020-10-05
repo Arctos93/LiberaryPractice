@@ -1,5 +1,6 @@
 package repository;
 
+import model.Author;
 import model.Book;
 
 import javax.persistence.EntityManager;
@@ -22,6 +23,25 @@ public class BookRepository {
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
         entityManager.persist(book);
+        transaction.commit();
+    }
+
+    public void edit(Book book) {
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        entityManager.merge(book);
+        transaction.commit();
+    }
+
+    public Book find(Long id){
+        return entityManager.find(Book.class, id);
+    }
+
+
+    public void delete(Long bookId) {
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        entityManager.remove(find(bookId));
         transaction.commit();
     }
 
